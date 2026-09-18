@@ -4,6 +4,9 @@
 
 **FACTOR** (factorizing action credit and token responsibility) — Official Implementation
 
+[![arXiv](https://img.shields.io/badge/arXiv-2608.07118-b31b1b.svg)](https://arxiv.org/abs/2608.07118)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
 </div>
 
 ## 📖 Abstract
@@ -246,14 +249,17 @@ This project is licensed under the [MIT License](LICENSE).
 If you find FACTOR useful for your research, please cite:
 
 ```bibtex
-@article{ma2026factor,
-  title     = {How Much, Then Where: Credit-Conserving Action-to-Token Allocation for Multi-Turn Agent Reinforcement Learning},
-  author    = {Ma, Lichao and Sun, Yang and Zhao, Shuaitao and Fang, Yangyi and Qin, Cong and Fu, Xiaoliang and Tian, Yuhang and Wei, Yuchen and Zhu, Junbo and Wei, Yang and Pan, Lu and Lin, Jiaye},
-  journal   = {arXiv preprint},
-  year      = {2026}
+@misc{ma2026factor,
+  title         = {How Much, Then Where: Credit-Conserving Action-to-Token Allocation for Multi-Turn Agent Reinforcement Learning},
+  author        = {Ma, Lichao and Sun, Yang and Zhao, Shuaitao and Fang, Yangyi and Qin, Cong and Fu, Xiaoliang and Tian, Yuhang and Wei, Yuchen and Zhu, Junbo and Wei, Yang and Pan, Lu and Lin, Jiaye},
+  year          = {2026},
+  eprint        = {2608.07118},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI},
+  url           = {https://arxiv.org/abs/2608.07118}
 }
 ```
 
 ---
 
-**Note**: This repository accompanies the paper "How Much, Then Where: Credit-Conserving Action-to-Token Allocation for Multi-Turn Agent Reinforcement Learning".
+**Note**: This repository accompanies the paper ["How Much, Then Where: Credit-Conserving Action-to-Token Allocation for Multi-Turn Agent Reinforcement Learning"](https://arxiv.org/abs/2608.07118) (arXiv:2608.07118).
