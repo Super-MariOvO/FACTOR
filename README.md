@@ -202,6 +202,7 @@ FACTOR/
 │   └── make_split_manifests.py      # Dataset split utilities
 ├── tests/                           # Unit tests for TAC/HTA/APM/trainer
 ├── docs/images/                     # Figures used in this README
+├── pyproject.toml                   # pip install -e .
 └── README.md
 ```
 
@@ -239,6 +240,19 @@ Covers: TAC value head shape/architecture, checkpoint selection by drift, replay
 ## 🙏 Acknowledgments
 
 This implementation is built on the [verl](https://github.com/volcengine/verl) RLHF framework and the SERL codebase. We thank the ALFWorld, WebShop, and ScienceWorld teams for the benchmarks.
+
+## 🐛 Troubleshooting
+
+### Common Issues
+
+1. **`import factor` fails**: run commands from the repository root, or `pip install -e .` first so the `factor` package is on the Python path. PyTorch is the only third-party dependency.
+2. **Environment backends are stubs**: the wrappers in `factor/environments/` define the interface (`reset() / step() / render_context()`) but do not ship live simulators — connect them to your local ALFWorld v0.3.2 / WebShop / ScienceWorld v1.1 installations before launching rollouts.
+3. **Policy wrapper missing**: FACTOR is an algorithm-level library. End-to-end training requires the verl/SERL framework (commit `b338174`, `serl_action_mask` branch) exposing `generate_trajectories`, `compute_logprobs`, `score_with_teacher`, `prefix_tokens`, and `sample_continuations` — see [`factor/training/trainer.py`](factor/training/trainer.py) for the exact data contract.
+
+### Performance Tips
+
+- **Continuation budget**: keep `B=2, M=4` — the default sits at the saturation knee; larger budgets only add environment interactions without measurable gain.
+- **Teacher window**: HTA's teacher is active only during steps 11–49 (`eta_k > 0`); keep steps 1–10 teacher-free so the value head warms up on stable Monte Carlo targets.
 
 ## 📝 License
 
